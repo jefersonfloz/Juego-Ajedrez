@@ -104,12 +104,12 @@ public class VP extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel panelCasillas;
     private javax.swing.JTextField tfTurno;
-
+    private JButton[][] MatrizCasillas;
 
 
     public VP() {
         initComponents();
-        JButton[][] MatrizCasillas = new JButton[8][8];
+        MatrizCasillas = new JButton[8][8];
         JButton ArrayButtons[] = {A1, B1, C1, D1, E1, F1, G1, H1,
                 A2, B2, C2, D2, E2, F2, G2, H2,
                 A3, B3, C3, D3, E3, F3, G3, H3,
@@ -217,7 +217,7 @@ public class VP extends javax.swing.JFrame {
         juego.negro.fichas.add(reyNegro);
     }
 
-    private void pintarCasillasNormal(JButton[][] MatrizCasillas) {
+    public void pintarCasillasNormal(JButton[][] MatrizCasillas) {
         int i, j;
         for (i = 0; i < 8; i++) {
             if (i == 0 || i == 2 || i == 4 || i == 6) {
@@ -233,11 +233,11 @@ public class VP extends javax.swing.JFrame {
         for (i = 0; i < 8; i++) {
             if (i == 1 || i == 3 || i == 5 || i == 7) {
                 for (j = 0; j < 8; j += 2) {
-                    MatrizCasillas[i][j].setBackground(Color.BLACK);
+                    this.MatrizCasillas[i][j].setBackground(Color.BLACK);
                 }
             } else {
                 for (j = 1; j < 8; j += 2) {
-                    MatrizCasillas[i][j].setBackground(Color.BLACK);
+                    this.MatrizCasillas[i][j].setBackground(Color.BLACK);
                 }
             }
         }
@@ -601,6 +601,8 @@ public class VP extends javax.swing.JFrame {
         G8.addActionListener(controller);
         H8.addActionListener(controller);
     }
+
+
     public void accionBoton(JButton boton, int posicion) {
         boolean turnoBlanco = juego.turnoBlanco;
         if (boton.getBackground().equals(Color.blue)) {
@@ -681,7 +683,6 @@ public class VP extends javax.swing.JFrame {
         }
     }
 
-
     public void moverFicha(Partida juego, boolean turnoBlanco, JButton boton, Ficha seleccionada, int posicion) {
         Ficha comida = null;
         if (turnoBlanco) {
@@ -734,7 +735,7 @@ public class VP extends javax.swing.JFrame {
         }
     }
 
-    private void actualizarTurno(boolean turnoBlanco){
+    public void actualizarTurno(boolean turnoBlanco){
         if(turnoBlanco){
             tfTurno.setText("NEGRO");
             tfTurno.setBackground(Color.BLACK);
@@ -749,7 +750,7 @@ public class VP extends javax.swing.JFrame {
         seleccionada = null;
     }
 
-    private void promocionarPeon(JButton boton, boolean turnoBlanco) {
+    public void promocionarPeon(JButton boton, boolean turnoBlanco) {
         String[] opciones = {"Torre", "Caballo", "Alfil", "Dama"};
         int n = JOptionPane.showOptionDialog(rootPane,
                 "Tu peón ha llegado al final del tablero, ¿en qué nueva figura desea convertirla?",
@@ -1018,6 +1019,10 @@ public class VP extends javax.swing.JFrame {
 
     public JButton getH8() {
         return H8;
+    }
+
+    public JButton[][] getMatrizCasillas() {
+        return MatrizCasillas;
     }
 
     public static void main(String args[]) {

@@ -22,6 +22,7 @@ public class CheesController implements ActionListener {
         this.vista.addController(this);
         Jugador blanco = new Jugador(true);
         Jugador negro = new Jugador(false);
+        juego = new Partida(blanco, negro, vista.getMatrizCasillas());
     }
 
 
@@ -47,15 +48,10 @@ public class CheesController implements ActionListener {
                 if (source == botones[i][j]) {
                     // Llama a la acción correspondiente pasando el índice
                     vista.accionBoton(botones[i][j], i * botones[i].length + j);
-                    return; // Sale del método después de encontrar el botón
+                    return;
                 }
             }
         }
     }
-
-
-
-
-
 
 }
