@@ -6,6 +6,8 @@
 package vista;
 
 import codigo.*;
+import controlador.CheesController;
+
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -338,453 +340,71 @@ public class VP extends javax.swing.JFrame {
         panelCasillas.setRequestFocusEnabled(false);
         panelCasillas.setLayout(new java.awt.GridLayout(8, 8));
 
-        A1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A1);
-
-        B1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B1);
-
-        C1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C1);
-
-        D1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D1);
-
-        E1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E1);
-
-        F1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F1);
-
-        G1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G1);
-
-        H1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H1ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H1);
-
-        A2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A2);
-
-        B2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B2);
-
-        C2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C2);
-
-        D2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D2);
-
-        E2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E2);
-
-        F2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F2);
-
-        G2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G2);
-
-        H2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H2ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H2);
-
-        A3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A3);
-
-        B3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B3);
-
-        C3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C3);
-
-        D3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D3);
-
-        E3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E3);
-
-        F3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F3);
-
-        G3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G3);
-
-        H3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H3ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H3);
-
-        A4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A4);
-
-        B4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B4);
-
-        C4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C4);
-
-        D4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D4);
-
-        E4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E4);
-
-        F4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F4);
-
-        G4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G4);
-
-        H4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H4ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H4);
-
-        A5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A5);
-
-        B5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B5);
-
-        C5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C5);
-
-        D5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D5);
-
-        E5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E5);
-
-        F5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F5);
-
-        G5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G5);
-
-        H5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H5ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H5);
-
-        A6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A6);
-
-        B6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B6);
-
-        C6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C6);
-
-        D6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D6);
-
-        E6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E6);
-
-        F6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F6);
-
-        G6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G6);
-
-        H6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H6ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H6);
-
-        A7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A7);
-
-        B7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B7);
-
-        C7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C7);
-
-        D7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D7);
-
-        E7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E7);
-
-        F7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F7);
-
-        G7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G7);
-
-        H7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H7ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H7);
-
-        A8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                A8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(A8);
-
-        B8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(B8);
-
-        C8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                C8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(C8);
-
-        D8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                D8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(D8);
-
-        E8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                E8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(E8);
-
-        F8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                F8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(F8);
-
-        G8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                G8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(G8);
-
-        H8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                H8ActionPerformed(evt);
-            }
-        });
         panelCasillas.add(H8);
+
 
         jPanel1.setLayout(new java.awt.GridLayout(8, 1));
 
@@ -908,263 +528,80 @@ public class VP extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void A1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A1, 0);
+    public void addController(CheesController controller) {
+        A1.addActionListener(controller);
+        B1.addActionListener(controller);
+        C1.addActionListener(controller);
+        D1.addActionListener(controller);
+        E1.addActionListener(controller);
+        F1.addActionListener(controller);
+        G1.addActionListener(controller);
+        H1.addActionListener(controller);
+
+        A2.addActionListener(controller);
+        B2.addActionListener(controller);
+        C2.addActionListener(controller);
+        D2.addActionListener(controller);
+        E2.addActionListener(controller);
+        F2.addActionListener(controller);
+        G2.addActionListener(controller);
+        H2.addActionListener(controller);
+
+        A3.addActionListener(controller);
+        B3.addActionListener(controller);
+        C3.addActionListener(controller);
+        D3.addActionListener(controller);
+        E3.addActionListener(controller);
+        F3.addActionListener(controller);
+        G3.addActionListener(controller);
+        H3.addActionListener(controller);
+
+        A4.addActionListener(controller);
+        B4.addActionListener(controller);
+        C4.addActionListener(controller);
+        D4.addActionListener(controller);
+        E4.addActionListener(controller);
+        F4.addActionListener(controller);
+        G4.addActionListener(controller);
+        H4.addActionListener(controller);
+
+        A5.addActionListener(controller);
+        B5.addActionListener(controller);
+        C5.addActionListener(controller);
+        D5.addActionListener(controller);
+        E5.addActionListener(controller);
+        F5.addActionListener(controller);
+        G5.addActionListener(controller);
+        H5.addActionListener(controller);
+
+        A6.addActionListener(controller);
+        B6.addActionListener(controller);
+        C6.addActionListener(controller);
+        D6.addActionListener(controller);
+        E6.addActionListener(controller);
+        F6.addActionListener(controller);
+        G6.addActionListener(controller);
+        H6.addActionListener(controller);
+
+        A7.addActionListener(controller);
+        B7.addActionListener(controller);
+        C7.addActionListener(controller);
+        D7.addActionListener(controller);
+        E7.addActionListener(controller);
+        F7.addActionListener(controller);
+        G7.addActionListener(controller);
+        H7.addActionListener(controller);
+
+        A8.addActionListener(controller);
+        B8.addActionListener(controller);
+        C8.addActionListener(controller);
+        D8.addActionListener(controller);
+        E8.addActionListener(controller);
+        F8.addActionListener(controller);
+        G8.addActionListener(controller);
+        H8.addActionListener(controller);
     }
-
-    private void B1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B1, 1);
-    }
-
-    private void A7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A7, 48);
-    }
-
-    private void D8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D8, 59);
-    }
-
-    private void C8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C8, 58);
-    }
-
-    private void B8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B8, 57);
-    }
-
-    private void A8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A8, 56);
-    }
-
-    private void E8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E8, 60);
-    }
-
-    private void A6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A6, 40);
-    }
-
-    private void A5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A5, 32);
-    }
-
-    private void C1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C1, 2);
-    }
-
-    private void D1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D1, 3);
-    }
-
-    private void E1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E1, 4);
-    }
-
-    private void F1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F1, 5);
-    }
-
-    private void G1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G1, 6);
-    }
-
-    private void H1ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H1, 7);
-    }
-
-    private void A2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A2, 8);
-    }
-
-    private void B2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B2, 9);
-    }//GEN-LAST:event_B2ActionPerformed
-
-    private void C2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C2, 10);
-    }//GEN-LAST:event_C2ActionPerformed
-
-    private void D2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D2, 11);
-    }//GEN-LAST:event_D2ActionPerformed
-
-    private void E2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E2, 12);
-    }//GEN-LAST:event_E2ActionPerformed
-
-    private void F2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F2, 13);
-    }//GEN-LAST:event_F2ActionPerformed
-
-    private void G2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G2, 14);
-    }//GEN-LAST:event_G2ActionPerformed
-
-    private void H2ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H2, 15);
-    }//GEN-LAST:event_H2ActionPerformed
-
-    private void A3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A3, 16);
-    }//GEN-LAST:event_A3ActionPerformed
-
-    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B3, 17);
-    }//GEN-LAST:event_B3ActionPerformed
-
-    private void C3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C3, 18);
-    }//GEN-LAST:event_C3ActionPerformed
-
-    private void D3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D3, 19);
-    }//GEN-LAST:event_D3ActionPerformed
-
-    private void E3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E3, 20);
-    }//GEN-LAST:event_E3ActionPerformed
-
-    private void F3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F3, 21);
-    }//GEN-LAST:event_F3ActionPerformed
-
-    private void G3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G3, 22);
-    }//GEN-LAST:event_G3ActionPerformed
-
-    private void H3ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H3, 23);
-    }//GEN-LAST:event_H3ActionPerformed
-
-    private void A4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(A4, 24);
-    }//GEN-LAST:event_A4ActionPerformed
-
-    private void B4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B4, 25);
-    }//GEN-LAST:event_B4ActionPerformed
-
-    private void C4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C4, 26);
-    }//GEN-LAST:event_C4ActionPerformed
-
-    private void D4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D4, 27);
-    }//GEN-LAST:event_D4ActionPerformed
-
-    private void E4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E4, 28);
-    }//GEN-LAST:event_E4ActionPerformed
-
-    private void F4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F4, 29);
-    }//GEN-LAST:event_F4ActionPerformed
-
-    private void G4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G4, 30);
-    }//GEN-LAST:event_G4ActionPerformed
-
-    private void H4ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H4, 31);
-    }//GEN-LAST:event_H4ActionPerformed
-
-    private void B5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B5, 33);
-    }
-
-    private void C5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C5, 34);
-    }
-
-    private void D5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D5, 35);
-    }
-
-    private void E5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E5, 36);
-    }
-
-    private void F5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F5, 37);
-    }
-
-    private void G5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G5, 38);
-    }
-
-    private void H5ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H5, 39);
-    }
-
-    private void B6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B6, 41);
-    }
-
-    private void C6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C6, 42);
-    }
-
-    private void D6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D6, 43);
-    }
-
-    private void E6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E6, 44);
-    }
-
-    private void F6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F6, 45);
-    }
-
-    private void G6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G6, 46);
-    }
-
-    private void H6ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H6, 47);
-    }
-
-    private void B7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(B7, 49);
-    }
-
-    private void C7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(C7, 50);
-    }
-
-    private void D7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(D7, 51);
-    }
-
-    private void E7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(E7, 52);
-    }
-
-    private void F7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F7, 53);
-    }
-
-    private void G7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G7, 54);
-    }
-
-    private void H7ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H7, 55);
-    }
-
-    private void F8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(F8, 61);
-    }
-
-    private void G8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(G8, 62);
-    }
-
-    private void H8ActionPerformed(java.awt.event.ActionEvent evt) {
-        accionBoton(H8, 63);
-    }
-
-    private void accionBoton(JButton boton, int posicion) {
+    public void accionBoton(JButton boton, int posicion) {
         boolean turnoBlanco = juego.turnoBlanco;
         if (boton.getBackground().equals(Color.blue)) {
             seleccionada.casilla = null;
@@ -1327,8 +764,265 @@ public class VP extends javax.swing.JFrame {
         }
     }
 
+    public JButton getA7() {
+        return A7;
+    }
+
+    public JButton getA1() {
+        return A1;
+    }
+
+    public JButton getA2() {
+        return A2;
+    }
+
+    public JButton getA3() {
+        return A3;
+    }
+
+    public JButton getA4() {
+        return A4;
+    }
+
+    public JButton getA5() {
+        return A5;
+    }
+
+    public JButton getA6() {
+        return A6;
+    }
+
+    public JButton getA8() {
+        return A8;
+    }
+
+    public JButton getB1() {
+        return B1;
+    }
+
+    public JButton getB2() {
+        return B2;
+    }
+
+    public JButton getB3() {
+        return B3;
+    }
+
+    public JButton getB4() {
+        return B4;
+    }
+
+    public JButton getB5() {
+        return B5;
+    }
+
+    public JButton getB6() {
+        return B6;
+    }
+
+    public JButton getB7() {
+        return B7;
+    }
+
+    public JButton getB8() {
+        return B8;
+    }
+
+    public JButton getC1() {
+        return C1;
+    }
+
+    public JButton getC2() {
+        return C2;
+    }
+
+    public JButton getC3() {
+        return C3;
+    }
+
+    public JButton getC4() {
+        return C4;
+    }
+
+    public JButton getC5() {
+        return C5;
+    }
+
+    public JButton getC6() {
+        return C6;
+    }
+
+    public JButton getC7() {
+        return C7;
+    }
+
+    public JButton getC8() {
+        return C8;
+    }
+
+    public JButton getD1() {
+        return D1;
+    }
+
+    public JButton getD2() {
+        return D2;
+    }
+
+    public JButton getD3() {
+        return D3;
+    }
+
+    public JButton getD4() {
+        return D4;
+    }
+
+    public JButton getD5() {
+        return D5;
+    }
+
+    public JButton getD6() {
+        return D6;
+    }
+
+    public JButton getD7() {
+        return D7;
+    }
+
+    public JButton getD8() {
+        return D8;
+    }
+
+    public JButton getE1() {
+        return E1;
+    }
+
+    public JButton getE2() {
+        return E2;
+    }
+
+    public JButton getE3() {
+        return E3;
+    }
+
+    public JButton getE4() {
+        return E4;
+    }
+
+    public JButton getE5() {
+        return E5;
+    }
+
+    public JButton getE6() {
+        return E6;
+    }
+
+    public JButton getE7() {
+        return E7;
+    }
+
+    public JButton getE8() {
+        return E8;
+    }
+
+    public JButton getF1() {
+        return F1;
+    }
+
+    public JButton getF2() {
+        return F2;
+    }
+
+    public JButton getF3() {
+        return F3;
+    }
+
+    public JButton getF4() {
+        return F4;
+    }
+
+    public JButton getF5() {
+        return F5;
+    }
+
+    public JButton getF6() {
+        return F6;
+    }
+
+    public JButton getF7() {
+        return F7;
+    }
+
+    public JButton getF8() {
+        return F8;
+    }
+
+    public JButton getG1() {
+        return G1;
+    }
+
+    public JButton getG2() {
+        return G2;
+    }
+
+    public JButton getG3() {
+        return G3;
+    }
+
+    public JButton getG4() {
+        return G4;
+    }
+
+    public JButton getG5() {
+        return G5;
+    }
+
+    public JButton getG6() {
+        return G6;
+    }
+
+    public JButton getG7() {
+        return G7;
+    }
+
+    public JButton getG8() {
+        return G8;
+    }
+
+    public JButton getH1() {
+        return H1;
+    }
+
+    public JButton getH2() {
+        return H2;
+    }
+
+    public JButton getH3() {
+        return H3;
+    }
+
+    public JButton getH4() {
+        return H4;
+    }
+
+    public JButton getH5() {
+        return H5;
+    }
+
+    public JButton getH6() {
+        return H6;
+    }
+
+    public JButton getH7() {
+        return H7;
+    }
+
+    public JButton getH8() {
+        return H8;
+    }
+
     public static void main(String args[]) {
-        VP vista = new VP();
-        vista.setVisible(true);
+        VP view = new VP();
+        CheesController controller = new CheesController(view);
+        view.setVisible(true);
     }
 }
