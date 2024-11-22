@@ -1,0 +1,246 @@
+@startuml
+class codigo.PGNCreater {
+- ArrayList<String> movimientos
+- String jugadorBlancas
+- String jugadorNegras
+- String resultado
+- LocalDate fecha
+- JTextArea textArea
++ String obtenerPosicion(int,int)
++ String obtenerSimboloPieza(Ficha)
++ void registrarMovimiento(Ficha,int,int,int,int,boolean)
+- void actualizarTexto()
++ void setResultado(String)
++ void guardarPGN(String)
+}
+
+
+class codigo.Jugador {
++ boolean blanco
++ ArrayList<codigo.Ficha> fichas
++ boolean estaLaFicha(int)
+}
+
+
+class Main {
++ {static} void main(String[])
+}
+
+class vista.ChessView {
+- javax.swing.JButton A1
+- javax.swing.JButton A2
+- javax.swing.JButton A3
+- javax.swing.JButton A4
+- javax.swing.JButton A5
+- javax.swing.JButton A6
+- javax.swing.JButton A7
+- javax.swing.JButton A8
+- javax.swing.JButton B1
+- javax.swing.JButton B2
+- javax.swing.JButton B3
+- javax.swing.JButton B4
+- javax.swing.JButton B5
+- javax.swing.JButton B6
+- javax.swing.JButton B7
+- javax.swing.JButton B8
+- javax.swing.JButton C1
+- javax.swing.JButton C2
+- javax.swing.JButton C3
+- javax.swing.JButton C4
+- javax.swing.JButton C5
+- javax.swing.JButton C6
+- javax.swing.JButton C7
+- javax.swing.JButton C8
+- javax.swing.JButton D1
+- javax.swing.JButton D2
+- javax.swing.JButton D3
+- javax.swing.JButton D4
+- javax.swing.JButton D5
+- javax.swing.JButton D6
+- javax.swing.JButton D7
+- javax.swing.JButton D8
+- javax.swing.JButton E1
+- javax.swing.JButton E2
+- javax.swing.JButton E3
+- javax.swing.JButton E4
+- javax.swing.JButton E5
+- javax.swing.JButton E6
+- javax.swing.JButton E7
+- javax.swing.JButton E8
+- javax.swing.JButton F1
+- javax.swing.JButton F2
+- javax.swing.JButton F3
+- javax.swing.JButton F4
+- javax.swing.JButton F5
+- javax.swing.JButton F6
+- javax.swing.JButton F7
+- javax.swing.JButton F8
+- javax.swing.JButton G1
+- javax.swing.JButton G2
+- javax.swing.JButton G3
+- javax.swing.JButton G4
+- javax.swing.JButton G5
+- javax.swing.JButton G6
+- javax.swing.JButton G7
+- javax.swing.JButton G8
+- javax.swing.JButton H1
+- javax.swing.JButton H2
+- javax.swing.JButton H3
+- javax.swing.JButton H4
+- javax.swing.JButton H5
+- javax.swing.JButton H6
+- javax.swing.JButton H7
+- javax.swing.JButton H8
+- javax.swing.JLabel jLabel1
+- javax.swing.JLabel jLabel10
+- javax.swing.JLabel jLabel11
+- javax.swing.JLabel jLabel12
+- javax.swing.JLabel jLabel13
+- javax.swing.JLabel jLabel14
+- javax.swing.JLabel jLabel15
+- javax.swing.JLabel jLabel16
+- javax.swing.JLabel jLabel2
+- javax.swing.JLabel jLabel3
+- javax.swing.JLabel jLabel4
+- javax.swing.JLabel jLabel5
+- javax.swing.JLabel jLabel6
+- javax.swing.JLabel jLabel7
+- javax.swing.JLabel jLabel8
+- javax.swing.JLabel jLabel9
+- javax.swing.JPanel jPanel1
+- javax.swing.JPanel jPanel3
+- javax.swing.JPanel panelCasillas
+- javax.swing.JTextField tfTurno
+- JButton[][] MatrizCasillas
+- javax.swing.JPanel panelDerecho
+- JTextArea textArea
+~ PGNCreater pgnCreater
+~ JButton btnGuardar
++ void pintarCasillasNormal(JButton[][])
+- void initComponents()
++ void addController(CheesController)
++ void promocionarPeon(JButton,boolean,Ficha)
++ JTextField getTfTurno()
++ JButton getA7()
++ JButton getA1()
++ JButton getA2()
++ JButton getA3()
++ JButton getA4()
++ JButton getA5()
++ JButton getA6()
++ JButton getA8()
++ JButton getB1()
++ JButton getB2()
++ JButton getB3()
++ JButton getB4()
++ JButton getB5()
++ JButton getB6()
++ JButton getB7()
++ JButton getB8()
++ JButton getC1()
++ JButton getC2()
++ JButton getC3()
++ JButton getC4()
++ JButton getC5()
++ JButton getC6()
++ JButton getC7()
++ JButton getC8()
++ JButton getD1()
++ JButton getD2()
++ JButton getD3()
++ JButton getD4()
++ JButton getD5()
++ JButton getD6()
++ JButton getD7()
++ JButton getD8()
++ JButton getE1()
++ JButton getE2()
++ JButton getE3()
++ JButton getE4()
++ JButton getE5()
++ JButton getE6()
++ JButton getE7()
++ JButton getE8()
++ JButton getF1()
++ JButton getF2()
++ JButton getF3()
++ JButton getF4()
++ JButton getF5()
++ JButton getF6()
++ JButton getF7()
++ JButton getF8()
++ JButton getG1()
++ JButton getG2()
++ JButton getG3()
++ JButton getG4()
++ JButton getG5()
++ JButton getG6()
++ JButton getG7()
++ JButton getG8()
++ JButton getH1()
++ JButton getH2()
++ JButton getH3()
++ JButton getH4()
++ JButton getH5()
++ JButton getH6()
++ JButton getH7()
++ JButton getH8()
++ JButton[][] getMatrizCasillas()
++ JTextArea getTextArea()
++ JButton getBtnGuardar()
+}
+
+
+class codigo.Ficha {
++ boolean fichaBlanca
++ int id
++ int tipo
++ JButton casilla
++ void cambiarA(Ficha,JButton)
++ void poneImagenes(int,int)
++ String toString()
+}
+
+
+class controlador.CheesController {
+- ChessView vista
+- PGNCreater pgnCreater
+- JButton seleccionado
+- Ficha seleccionada
+- Partida juego
+- void sacarFichas()
++ void actionPerformed(ActionEvent)
++ void accionBoton(JButton,int)
+- int getFila(JButton,JButton[][])
+- int getColumna(JButton,JButton[][])
++ void moverFicha(Partida,boolean,JButton,Ficha,int)
++ void actualizarTurno(boolean)
+}
+
+
+class codigo.Partida {
+- Jugador blanco
+- Jugador negro
+- JButton[][] tablero
+- boolean turnoBlanco
++ void cambiarTurno()
++ boolean casillaOcupada(JButton,codigo.Jugador)
++ boolean comer(codigo.Jugador,codigo.Ficha)
++ void calcularPosicionesCaballo(int,boolean)
++ void calcularPosicionesAlfil(int,boolean)
++ void calcularPosicionesDama(int,boolean)
++ void calcularPosicionesTorre(int,boolean)
++ void calcularPosicionesRey(int,boolean)
++ void calcularPosicionesPeon(int,boolean,boolean)
++ Jugador getNegro()
++ Jugador getBlanco()
++ JButton[][] getTablero()
++ boolean isTurnoBlanco()
+}
+
+
+
+
+vista.JFrame <|-- vista.ChessView
+java.awt.event.ActionListener <|.. controlador.CheesController
+@enduml

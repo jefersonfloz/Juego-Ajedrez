@@ -5,10 +5,10 @@ import javax.swing.JButton;
 import java.awt.*;
 
 public class Partida {
-    public codigo.Jugador blanco;
-    public codigo.Jugador negro;
-    public JButton tablero[][];
-    public boolean turnoBlanco;
+    private Jugador blanco;
+    private Jugador negro;
+    private JButton tablero[][];
+    private boolean turnoBlanco;
 
     public Partida(codigo.Jugador b, codigo.Jugador n, JButton[][] t){
         this.blanco = b;
@@ -537,4 +537,20 @@ public class Partida {
         }
     }
 
+
+    public Jugador getNegro() {
+        return negro;
+    }
+
+    public Jugador getBlanco() {
+        return blanco;
+    }
+
+    public JButton[][] getTablero() {
+        return tablero;
+    }
+
+    public boolean isTurnoBlanco() {
+        return turnoBlanco;
+    }
 }

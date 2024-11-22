@@ -7,5 +7,4 @@ public class Main {
         CheesController controller = new CheesController(view);
         view.setVisible(true);
     }
-
 }
