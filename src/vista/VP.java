@@ -106,7 +106,6 @@ public class VP extends javax.swing.JFrame {
 
     public VP() {
         initComponents();
-        setSize(800,550);
         pgnCreater = new PGNCreater("Jugador Blanco", "Jugador Negro", textArea);
 
         MatrizCasillas = new JButton[8][8];
@@ -456,42 +455,42 @@ public class VP extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("A");
+        jLabel9.setText("a");
         jPanel3.add(jLabel9);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("B");
+        jLabel10.setText("b");
         jPanel3.add(jLabel10);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("C");
+        jLabel11.setText("c");
         jPanel3.add(jLabel11);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("D");
+        jLabel12.setText("d");
         jPanel3.add(jLabel12);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("E");
+        jLabel13.setText("e");
         jPanel3.add(jLabel13);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("F");
+        jLabel14.setText("f");
         jPanel3.add(jLabel14);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("G");
+        jLabel15.setText("g");
         jPanel3.add(jLabel15);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("H");
+        jLabel16.setText("h");
         jPanel3.add(jLabel16);
 
         // Configuración del panel derecho

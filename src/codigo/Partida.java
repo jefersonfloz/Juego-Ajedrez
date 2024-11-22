@@ -472,57 +472,69 @@ public class Partida {
         int x = posicion / 8;
         int y = posicion % 8;
         int i, j;
-        //Las fichas blancan irán hacia arriba.
+
+        // Movimiento hacia arriba para las blancas
         if (turnoBlanco) {
-            i = x-1; j = y;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0)){
-                if(!casillaOcupada(tablero[i][j], negro) && !casillaOcupada(tablero[i][j], blanco)){
+            // Una casilla adelante
+            i = x - 1; j = y;
+            if ((i >= 0) && (j >= 0) && (j < 8)) {
+                if (!casillaOcupada(tablero[i][j], negro) && !casillaOcupada(tablero[i][j], blanco)) {
                     tablero[i][j].setBackground(Color.blue);
+
+                    // Dos casillas adelante (si es el primer turno)
+                    if (primerTurno) {
+                        int i2 = x - 2; // Segunda casilla adelante
+                        if ((i2 >= 0) && !casillaOcupada(tablero[i2][j], negro) && !casillaOcupada(tablero[i2][j], blanco)) {
+                            tablero[i2][j].setBackground(Color.blue);
+                        }
+                    }
                 }
             }
-            i = x-2; j = y;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0) && primerTurno){
-                if(!casillaOcupada(tablero[i][j], negro) && !casillaOcupada(tablero[i][j], blanco)){
-                    tablero[i][j].setBackground(Color.blue);
-                }
-            }
-            i = x-1; j = y-1;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0)){
-                if(casillaOcupada(tablero[i][j], negro)){
+            // Diagonal izquierda (captura)
+            i = x - 1; j = y - 1;
+            if ((i >= 0) && (j >= 0)) {
+                if (casillaOcupada(tablero[i][j], negro)) {
                     tablero[i][j].setBackground(Color.red);
                 }
             }
-            i = x-1; j = y+1;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0)){
-                if(casillaOcupada(tablero[i][j], negro)){
+            // Diagonal derecha (captura)
+            i = x - 1; j = y + 1;
+            if ((i >= 0) && (j < 8)) {
+                if (casillaOcupada(tablero[i][j], negro)) {
                     tablero[i][j].setBackground(Color.red);
                 }
             }
-        } else {
-            i = x+1; j = y;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0)){
-                if(!casillaOcupada(tablero[i][j], negro) && !casillaOcupada(tablero[i][j], blanco)){
+        } else { // Movimiento hacia abajo para las negras
+            // Una casilla adelante
+            i = x + 1; j = y;
+            if ((i < 8) && (j >= 0) && (j < 8)) {
+                if (!casillaOcupada(tablero[i][j], negro) && !casillaOcupada(tablero[i][j], blanco)) {
                     tablero[i][j].setBackground(Color.blue);
+
+                    // Dos casillas adelante (si es el primer turno)
+                    if (primerTurno) {
+                        int i2 = x + 2; // Segunda casilla adelante
+                        if ((i2 < 8) && !casillaOcupada(tablero[i2][j], negro) && !casillaOcupada(tablero[i2][j], blanco)) {
+                            tablero[i2][j].setBackground(Color.blue);
+                        }
+                    }
                 }
             }
-            i = x+2; j = y;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0) && primerTurno){
-                if(!casillaOcupada(tablero[i][j], negro) && !casillaOcupada(tablero[i][j], blanco)){
-                    tablero[i][j].setBackground(Color.blue);
-                }
-            }
-            i = x+1; j = y-1;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0)){
-                if(casillaOcupada(tablero[i][j], blanco)){
+            // Diagonal izquierda (captura)
+            i = x + 1; j = y - 1;
+            if ((i < 8) && (j >= 0)) {
+                if (casillaOcupada(tablero[i][j], blanco)) {
                     tablero[i][j].setBackground(Color.red);
                 }
             }
-            i = x+1; j = y+1;
-            if((i >= 0) && (i < 8) && (j < 8) && (j >= 0)){
-                if(casillaOcupada(tablero[i][j], blanco)){
+            // Diagonal derecha (captura)
+            i = x + 1; j = y + 1;
+            if ((i < 8) && (j < 8)) {
+                if (casillaOcupada(tablero[i][j], blanco)) {
                     tablero[i][j].setBackground(Color.red);
                 }
             }
         }
     }
+
 }

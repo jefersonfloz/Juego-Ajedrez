@@ -25,7 +25,6 @@ public class CheesController implements ActionListener {
 
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -46,11 +45,6 @@ public class CheesController implements ActionListener {
         for (int i = 0; i < botones.length; i++) {
             for (int j = 0; j < botones[i].length; j++) {
                 if (source == botones[i][j]) {
-                    // Llama a la acción correspondiente pasando el índice
-                    int filaOrigen = getFila(vista.getSeleccionado(), juego.tablero);
-                    int columnaOrigen = getColumna(vista.getSeleccionado(), juego.tablero);
-                    int filaDestino = getFila(botones[i][j], juego.tablero);
-                    int columnaDestino = getColumna(botones[i][j], juego.tablero);
                     vista.accionBoton(botones[i][j], i * botones[i].length + j);
                      return;
                 }
