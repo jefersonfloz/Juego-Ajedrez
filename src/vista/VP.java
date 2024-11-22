@@ -5,7 +5,6 @@ import codigo.*;
 import controlador.CheesController;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.*;
 
 public class VP extends javax.swing.JFrame {
