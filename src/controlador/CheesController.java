@@ -4,7 +4,7 @@ import codigo.Ficha;
 import codigo.Jugador;
 import codigo.PGNCreater;
 import codigo.Partida;
-import vista.VP;
+import vista.ChessView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,13 +13,13 @@ import java.awt.event.ActionListener;
 
 public class CheesController implements ActionListener {
 
-    VP vista;
+    ChessView vista;
     PGNCreater pgnCreater;
     JButton seleccionado;
     Ficha seleccionada;
     Partida juego;
 
-    public CheesController(VP vista) {
+    public CheesController(ChessView vista) {
         this.vista = vista;
         this.vista.addController(this);
         Jugador blanco = new Jugador(true);
@@ -27,6 +27,10 @@ public class CheesController implements ActionListener {
         juego = new Partida(blanco, negro, vista.getMatrizCasillas());
         pgnCreater = new PGNCreater("Jugador Blanco", "Jugador Negro", vista.getTextArea());
         sacarFichas();
+        vista.getBtnGuardar().addActionListener(e -> {
+            //pgnCreater.guardarPGN("hola.pgn");
+            System.out.println("Boton guardar");
+        });
     }
 
 
@@ -208,27 +212,21 @@ public class CheesController implements ActionListener {
                     } else {
                         juego.calcularPosicionesPeon(posicion, turnoBlanco, false);
                     }
-                    System.out.println("1");
                 }
                 if (seleccionada.tipo == 2) {
                     juego.calcularPosicionesTorre(posicion, turnoBlanco);
-                    System.out.println("2");
                 }
                 if (seleccionada.tipo == 3) {
                     juego.calcularPosicionesCaballo(posicion, turnoBlanco);
-                    System.out.println("3");
                 }
                 if (seleccionada.tipo == 4) {
                     juego.calcularPosicionesAlfil(posicion, turnoBlanco);
-                    System.out.println("4");
                 }
                 if (seleccionada.tipo == 5) {
                     juego.calcularPosicionesDama(posicion, turnoBlanco);
-                    System.out.println("5");
                 }
                 if (seleccionada.tipo == 6) {
                     juego.calcularPosicionesRey(posicion, turnoBlanco);
-                    System.out.println("6");
                 }
             }
         }

@@ -7,7 +7,7 @@ import controlador.CheesController;
 import java.awt.Color;
 import javax.swing.*;
 
-public class VP extends javax.swing.JFrame {
+public class ChessView extends javax.swing.JFrame {
 
     private javax.swing.JButton A1;
     private javax.swing.JButton A2;
@@ -100,7 +100,7 @@ public class VP extends javax.swing.JFrame {
     JButton btnGuardar;
 
 
-    public VP() {
+    public ChessView() {
         initComponents();
         pgnCreater = new PGNCreater("Jugador Blanco", "Jugador Negro", textArea);
 
@@ -535,6 +535,7 @@ public class VP extends javax.swing.JFrame {
         F8.addActionListener(controller);
         G8.addActionListener(controller);
         H8.addActionListener(controller);
+        btnGuardar.addActionListener(controller);
     }
 
 
@@ -821,10 +822,7 @@ public class VP extends javax.swing.JFrame {
     public JTextArea getTextArea() {
         return textArea;
     }
-
-    public static void main(String args[]) {
-        VP view = new VP();
-        CheesController controller = new CheesController(view);
-        view.setVisible(true);
+    public JButton getBtnGuardar() {
+        return btnGuardar;
     }
 }
