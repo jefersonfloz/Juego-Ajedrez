@@ -97,6 +97,7 @@ public class VP extends javax.swing.JFrame {
     private javax.swing.JPanel panelDerecho;
     private JTextArea textArea;
     PGNCreater pgnCreater;
+    JButton btnGuardar;
 
 
     public VP() {
@@ -243,6 +244,7 @@ public class VP extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         tfTurno = new javax.swing.JTextField();
+        btnGuardar = new JButton("Guardar");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ajedrez");
@@ -406,6 +408,8 @@ public class VP extends javax.swing.JFrame {
 
         // Configuración del panel derecho
         panelDerecho.setLayout(new java.awt.BorderLayout());
+
+// Configuración del JTextArea con un JScrollPane
         textArea.setEditable(false);
         textArea.setText("Información del juego:\n");
         textArea.setFont(new java.awt.Font("Tahoma", 0, 14));
@@ -413,6 +417,10 @@ public class VP extends javax.swing.JFrame {
         textArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(textArea);
         panelDerecho.add(scrollPane, java.awt.BorderLayout.CENTER);
+
+        // Configuración del botón Guardar
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14));
+        panelDerecho.add(btnGuardar, java.awt.BorderLayout.SOUTH);
 
         tfTurno.setEditable(false);
         tfTurno.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
