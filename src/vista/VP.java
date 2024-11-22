@@ -101,11 +101,14 @@ public class VP extends javax.swing.JFrame {
     private JButton[][] MatrizCasillas;
     private javax.swing.JPanel panelDerecho;
     private JTextArea textArea;
-
+    PGNCreater pgnCreater;
 
 
     public VP() {
         initComponents();
+        setSize(800,550);
+        pgnCreater = new PGNCreater("Jugador Blanco", "Jugador Negro", textArea);
+
         MatrizCasillas = new JButton[8][8];
         JButton ArrayButtons[] = {A1, B1, C1, D1, E1, F1, G1, H1,
                 A2, B2, C2, D2, E2, F2, G2, H2,
@@ -408,45 +411,46 @@ public class VP extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(8, 1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("1");
-        jPanel1.add(jLabel1);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("2");
-        jPanel1.add(jLabel2);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("3");
-        jPanel1.add(jLabel3);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("4");
-        jPanel1.add(jLabel4);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("5");
-        jPanel1.add(jLabel5);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("6");
-        jPanel1.add(jLabel6);
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("8");
+        jPanel1.add(jLabel8);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("7");
         jPanel1.add(jLabel7);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("8");
-        jPanel1.add(jLabel8);
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("6");
+        jPanel1.add(jLabel6);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("5");
+        jPanel1.add(jLabel5);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("4");
+        jPanel1.add(jLabel4);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("3");
+        jPanel1.add(jLabel3);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("2");
+        jPanel1.add(jLabel2);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("1");
+        jPanel1.add(jLabel1);
+
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -619,82 +623,119 @@ public class VP extends javax.swing.JFrame {
     public void accionBoton(JButton boton, int posicion) {
         boolean turnoBlanco = juego.turnoBlanco;
         if (boton.getBackground().equals(Color.blue)) {
+            // Movimiento normal (sin captura)
+            int filaOrigen = getFila(seleccionado, juego.tablero);
+            int columnaOrigen = getColumna(seleccionado, juego.tablero);
+            int filaDestino = getFila(boton, juego.tablero);
+            int columnaDestino = getColumna(boton, juego.tablero);
+
+            // Registrar el movimiento en PGN
+            pgnCreater.registrarMovimiento(seleccionada, filaOrigen, columnaOrigen, filaDestino, columnaDestino, false);
+
             seleccionada.casilla = null;
             seleccionado.setIcon(null);
             seleccionada.casilla = boton;
-            if(seleccionada.tipo == 1 && ((posicion >= 0) && (posicion <=7) || (posicion >= 56) && (posicion <=63))){
-                if(turnoBlanco && (posicion >= 0) && (posicion <=7)){
-                    promocionarPeon(boton,turnoBlanco);
-                }else{
-                    if(!turnoBlanco && (posicion >= 56) && (posicion <=63)){
-                        promocionarPeon(boton,turnoBlanco);
-                    }else{
-                        System.out.println("Error");
-                    }
+            if (seleccionada.tipo == 1 && ((posicion >= 0) && (posicion <= 7) || (posicion >= 56) && (posicion <= 63))) {
+                if (turnoBlanco && (posicion >= 0) && (posicion <= 7)) {
+                    promocionarPeon(boton, turnoBlanco);
+                } else if (!turnoBlanco && (posicion >= 56) && (posicion <= 63)) {
+                    promocionarPeon(boton, turnoBlanco);
+                } else {
+                    System.out.println("Error");
                 }
-            }else{
+            } else {
                 seleccionada.poneImagenes(boton.getWidth(), boton.getHeight());
             }
             pintarCasillasNormal(juego.tablero);
             actualizarTurno(turnoBlanco);
+        } else if (boton.getBackground().equals(Color.red)) {
+            // Movimiento con captura
+            int filaOrigen = getFila(seleccionado, juego.tablero);
+            int columnaOrigen = getColumna(seleccionado, juego.tablero);
+            int filaDestino = getFila(boton, juego.tablero);
+            int columnaDestino = getColumna(boton, juego.tablero);
+
+            // Registrar el movimiento con captura en PGN
+            pgnCreater.registrarMovimiento(seleccionada, filaOrigen, columnaOrigen, filaDestino, columnaDestino, true);
+
+            moverFicha(juego, turnoBlanco, boton, seleccionada, posicion);
         } else {
-            if (boton.getBackground().equals(Color.red)) {
-                moverFicha(juego, turnoBlanco, boton, seleccionada, posicion);
-            } else {
-                seleccionado = null;
-                seleccionada = null;
-                pintarCasillasNormal(juego.tablero);
-                int i;
-                i = 0;
-                while (seleccionada == null && (i < juego.negro.fichas.size() || i < juego.blanco.fichas.size())) {
-                    if (i < juego.negro.fichas.size() && !turnoBlanco) {
-                        if (juego.negro.fichas.get(i).casilla.equals(boton)) {
-                            seleccionado = juego.negro.fichas.get(i).casilla;
-                            seleccionada = juego.negro.fichas.get(i);
-                        }
-                    } else {
-                        if (i < juego.blanco.fichas.size() && turnoBlanco) {
-                            if (juego.blanco.fichas.get(i).casilla.equals(boton)) {
-                                seleccionado = juego.blanco.fichas.get(i).casilla;
-                                seleccionada = juego.blanco.fichas.get(i);
-                            }
-                        }
+            // Lógica para seleccionar una pieza o resetear la selección
+            seleccionado = null;
+            seleccionada = null;
+            pintarCasillasNormal(juego.tablero);
+            int i = 0;
+            while (seleccionada == null && (i < juego.negro.fichas.size() || i < juego.blanco.fichas.size())) {
+                if (i < juego.negro.fichas.size() && !turnoBlanco) {
+                    if (juego.negro.fichas.get(i).casilla.equals(boton)) {
+                        seleccionado = juego.negro.fichas.get(i).casilla;
+                        seleccionada = juego.negro.fichas.get(i);
                     }
-                    i++;
+                } else if (i < juego.blanco.fichas.size() && turnoBlanco) {
+                    if (juego.blanco.fichas.get(i).casilla.equals(boton)) {
+                        seleccionado = juego.blanco.fichas.get(i).casilla;
+                        seleccionada = juego.blanco.fichas.get(i);
+                    }
                 }
-                if (seleccionada != null) {
-                    if (seleccionada.tipo == 1) {
-                        if((posicion >= 48) && (posicion <= 55) || (posicion >= 8) && (posicion <= 15)){
-                            juego.calcularPosicionesPeon(posicion, turnoBlanco, true);
-                        }else{
-                            juego.calcularPosicionesPeon(posicion, turnoBlanco, false);
-                        }
-                        System.out.println("1");
+                i++;
+            }
+            if (seleccionada != null) {
+                if (seleccionada.tipo == 1) {
+                    if ((posicion >= 48) && (posicion <= 55) || (posicion >= 8) && (posicion <= 15)) {
+                        juego.calcularPosicionesPeon(posicion, turnoBlanco, true);
+                    } else {
+                        juego.calcularPosicionesPeon(posicion, turnoBlanco, false);
                     }
-                    if (seleccionada.tipo == 2) {
-                        juego.calcularPosicionesTorre(posicion, turnoBlanco);
-                        System.out.println("2");
-                    }
-                    if (seleccionada.tipo == 3) {
-                        juego.calcularPosicionesCaballo(posicion, turnoBlanco);
-                        System.out.println("3");
-                    }
-                    if (seleccionada.tipo == 4) {
-                        juego.calcularPosicionesAlfil(posicion, turnoBlanco);
-                        System.out.println("4");
-                    }
-                    if (seleccionada.tipo == 5) {
-                        juego.calcularPosicionesDama(posicion, turnoBlanco);
-                        System.out.println("5");
-                    }
-                    if (seleccionada.tipo == 6) {
-                        juego.calcularPosicionesRey(posicion, turnoBlanco);
-                        System.out.println("6");
-                    }
+                    System.out.println("1");
+                }
+                if (seleccionada.tipo == 2) {
+                    juego.calcularPosicionesTorre(posicion, turnoBlanco);
+                    System.out.println("2");
+                }
+                if (seleccionada.tipo == 3) {
+                    juego.calcularPosicionesCaballo(posicion, turnoBlanco);
+                    System.out.println("3");
+                }
+                if (seleccionada.tipo == 4) {
+                    juego.calcularPosicionesAlfil(posicion, turnoBlanco);
+                    System.out.println("4");
+                }
+                if (seleccionada.tipo == 5) {
+                    juego.calcularPosicionesDama(posicion, turnoBlanco);
+                    System.out.println("5");
+                }
+                if (seleccionada.tipo == 6) {
+                    juego.calcularPosicionesRey(posicion, turnoBlanco);
+                    System.out.println("6");
                 }
             }
         }
     }
+
+
+    private int getFila(JButton boton, JButton[][] botones) {
+        for (int i = 0; i < botones.length; i++) {
+            for (int j = 0; j < botones[i].length; j++) {
+                if (botones[i][j] == boton) {
+                    return i;
+                }
+            }
+        }
+        return -1; // No encontrado
+    }
+
+    private int getColumna(JButton boton, JButton[][] botones) {
+        for (int i = 0; i < botones.length; i++) {
+            for (int j = 0; j < botones[i].length; j++) {
+                if (botones[i][j] == boton) {
+                    return j;
+                }
+            }
+        }
+        return -1; // No encontrado
+    }
+
+
 
     public void moverFicha(Partida juego, boolean turnoBlanco, JButton boton, Ficha seleccionada, int posicion) {
         Ficha comida = null;
@@ -1036,6 +1077,18 @@ public class VP extends javax.swing.JFrame {
 
     public JButton[][] getMatrizCasillas() {
         return MatrizCasillas;
+    }
+
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+    public JButton getSeleccionado() {
+        return seleccionado;
+    }
+
+    public Ficha getSeleccionada() {
+        return seleccionada;
     }
 
     public static void main(String args[]) {

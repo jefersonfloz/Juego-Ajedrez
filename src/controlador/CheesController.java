@@ -2,6 +2,7 @@ package controlador;
 
 import codigo.Ficha;
 import codigo.Jugador;
+import codigo.PGNCreater;
 import codigo.Partida;
 import vista.VP;
 
@@ -11,11 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CheesController implements ActionListener {
-
     VP vista;
-    JButton seleccionado;
     Partida juego;
-    Ficha seleccionada;
+    PGNCreater pgnCreater;
 
     public CheesController(VP vista) {
         this.vista = vista;
@@ -23,6 +22,7 @@ public class CheesController implements ActionListener {
         Jugador blanco = new Jugador(true);
         Jugador negro = new Jugador(false);
         juego = new Partida(blanco, negro, vista.getMatrizCasillas());
+
     }
 
 
@@ -47,11 +47,37 @@ public class CheesController implements ActionListener {
             for (int j = 0; j < botones[i].length; j++) {
                 if (source == botones[i][j]) {
                     // Llama a la acción correspondiente pasando el índice
+                    int filaOrigen = getFila(vista.getSeleccionado(), juego.tablero);
+                    int columnaOrigen = getColumna(vista.getSeleccionado(), juego.tablero);
+                    int filaDestino = getFila(botones[i][j], juego.tablero);
+                    int columnaDestino = getColumna(botones[i][j], juego.tablero);
                     vista.accionBoton(botones[i][j], i * botones[i].length + j);
-                    return;
+                     return;
                 }
             }
         }
+    }
+
+    private int getFila(JButton boton, JButton[][] botones) {
+        for (int i = 0; i < botones.length; i++) {
+            for (int j = 0; j < botones[i].length; j++) {
+                if (botones[i][j] == boton) {
+                    return i;
+                }
+            }
+        }
+        return -1; // No encontrado
+    }
+
+    private int getColumna(JButton boton, JButton[][] botones) {
+        for (int i = 0; i < botones.length; i++) {
+            for (int j = 0; j < botones[i].length; j++) {
+                if (botones[i][j] == boton) {
+                    return j;
+                }
+            }
+        }
+        return -1; // No encontrado
     }
 
 }
