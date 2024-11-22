@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Jugador {
 
-    public boolean blanco;
+    private boolean blanco;
     //   public boolean turno;
-    public ArrayList<codigo.Ficha> fichas;
+    private ArrayList<codigo.Ficha> fichas;
 
     public Jugador(boolean bla) {
         this.blanco = bla;
@@ -23,4 +23,12 @@ public class Jugador {
         return true;
     }
 
+
+    public boolean isBlanco() {
+        return blanco;
+    }
+
+    public ArrayList<Ficha> getFichas() {
+        return fichas;
+    }
 }

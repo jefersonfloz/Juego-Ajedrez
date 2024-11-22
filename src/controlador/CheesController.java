@@ -45,35 +45,35 @@ public class CheesController implements ActionListener {
         Ficha peonBlanco5 = new Ficha(true, 5, 1, juego.getTablero()[6][5]);
         Ficha peonBlanco6 = new Ficha(true, 6, 1, juego.getTablero()[6][6]);
         Ficha peonBlanco7 = new Ficha(true, 7, 1, juego.getTablero()[6][7]);
-        juego.getBlanco().fichas.add(peonBlanco0);
-        juego.getBlanco().fichas.add(peonBlanco1);
-        juego.getBlanco().fichas.add(peonBlanco2);
-        juego.getBlanco().fichas.add(peonBlanco3);
-        juego.getBlanco().fichas.add(peonBlanco4);
-        juego.getBlanco().fichas.add(peonBlanco5);
-        juego.getBlanco().fichas.add(peonBlanco6);
-        juego.getBlanco().fichas.add(peonBlanco7);
+        juego.getBlanco().getFichas().add(peonBlanco0);
+        juego.getBlanco().getFichas().add(peonBlanco1);
+        juego.getBlanco().getFichas().add(peonBlanco2);
+        juego.getBlanco().getFichas().add(peonBlanco3);
+        juego.getBlanco().getFichas().add(peonBlanco4);
+        juego.getBlanco().getFichas().add(peonBlanco5);
+        juego.getBlanco().getFichas().add(peonBlanco6);
+        juego.getBlanco().getFichas().add(peonBlanco7);
         //Torres blancos
         Ficha torreBlanco0 = new Ficha(true, 8, 2, juego.getTablero()[7][0]);
         Ficha torreBlanco1 = new Ficha(true, 9, 2, juego.getTablero()[7][7]);
-        juego.getBlanco().fichas.add(torreBlanco0);
-        juego.getBlanco().fichas.add(torreBlanco1);
+        juego.getBlanco().getFichas().add(torreBlanco0);
+        juego.getBlanco().getFichas().add(torreBlanco1);
         //Caballos blancos
         Ficha caballoBlanco0 = new Ficha(true, 10, 3, juego.getTablero()[7][1]);
         Ficha caballoBlanco1 = new Ficha(true, 11, 3, juego.getTablero()[7][6]);
-        juego.getBlanco().fichas.add(caballoBlanco0);
-        juego.getBlanco().fichas.add(caballoBlanco1);
+        juego.getBlanco().getFichas().add(caballoBlanco0);
+        juego.getBlanco().getFichas().add(caballoBlanco1);
         //Alfiles blancos
         Ficha alfilBlanco0 = new Ficha(true, 12, 4, juego.getTablero()[7][2]);
         Ficha alfilBlanco1 = new Ficha(true, 13, 4, juego.getTablero()[7][5]);
-        juego.getBlanco().fichas.add(alfilBlanco0);
-        juego.getBlanco().fichas.add(alfilBlanco1);
+        juego.getBlanco().getFichas().add(alfilBlanco0);
+        juego.getBlanco().getFichas().add(alfilBlanco1);
         //Dama blanca
         Ficha damaBlanco = new Ficha(true, 14, 5, juego.getTablero()[7][3]);
-        juego.getBlanco().fichas.add(damaBlanco);
+        juego.getBlanco().getFichas().add(damaBlanco);
         //Rey blanco
         Ficha reyBlanco = new Ficha(true, 15, 6, juego.getTablero()[7][4]);
-        juego.getBlanco().fichas.add(reyBlanco);
+        juego.getBlanco().getFichas().add(reyBlanco);
 
         //Fichas negras
         //Peones negros
@@ -85,35 +85,35 @@ public class CheesController implements ActionListener {
         Ficha peonNegro5 = new Ficha(false, 5, 1, juego.getTablero()[1][5]);
         Ficha peonNegro6 = new Ficha(false, 6, 1, juego.getTablero()[1][6]);
         Ficha peonNegro7 = new Ficha(false, 7, 1, juego.getTablero()[1][7]);
-        juego.getNegro().fichas.add(peonNegro0);
-        juego.getNegro().fichas.add(peonNegro1);
-        juego.getNegro().fichas.add(peonNegro2);
-        juego.getNegro().fichas.add(peonNegro3);
-        juego.getNegro().fichas.add(peonNegro4);
-        juego.getNegro().fichas.add(peonNegro5);
-        juego.getNegro().fichas.add(peonNegro6);
-        juego.getNegro().fichas.add(peonNegro7);
+        juego.getNegro().getFichas().add(peonNegro0);
+        juego.getNegro().getFichas().add(peonNegro1);
+        juego.getNegro().getFichas().add(peonNegro2);
+        juego.getNegro().getFichas().add(peonNegro3);
+        juego.getNegro().getFichas().add(peonNegro4);
+        juego.getNegro().getFichas().add(peonNegro5);
+        juego.getNegro().getFichas().add(peonNegro6);
+        juego.getNegro().getFichas().add(peonNegro7);
         //Torres negros
         Ficha torreNegro0 = new Ficha(false, 8, 2, juego.getTablero()[0][0]);
         Ficha torreNegro1 = new Ficha(false, 9, 2, juego.getTablero()[0][7]);
-        juego.getNegro().fichas.add(torreNegro0);
-        juego.getNegro().fichas.add(torreNegro1);
+        juego.getNegro().getFichas().add(torreNegro0);
+        juego.getNegro().getFichas().add(torreNegro1);
         //Caballos negros
         Ficha caballoNegro0 = new Ficha(false, 10, 3, juego.getTablero()[0][1]);
         Ficha caballoNegro1 = new Ficha(false, 11, 3, juego.getTablero()[0][6]);
-        juego.getNegro().fichas.add(caballoNegro0);
-        juego.getNegro().fichas.add(caballoNegro1);
+        juego.getNegro().getFichas().add(caballoNegro0);
+        juego.getNegro().getFichas().add(caballoNegro1);
         //Alfiles negros
         Ficha alfilNegro0 = new Ficha(false, 12, 4, juego.getTablero()[0][2]);
         Ficha alfilNegro1 = new Ficha(false, 13, 4, juego.getTablero()[0][5]);
-        juego.getNegro().fichas.add(alfilNegro0);
-        juego.getNegro().fichas.add(alfilNegro1);
+        juego.getNegro().getFichas().add(alfilNegro0);
+        juego.getNegro().getFichas().add(alfilNegro1);
         //Dama negros
         Ficha damaNegro = new Ficha(false, 14, 5, juego.getTablero()[0][3]);
-        juego.getNegro().fichas.add(damaNegro);
+        juego.getNegro().getFichas().add(damaNegro);
         //Rey negros
         Ficha reyNegro = new Ficha(false, 15, 6, juego.getTablero()[0][4]);
-        juego.getNegro().fichas.add(reyNegro);
+        juego.getNegro().getFichas().add(reyNegro);
     }
 
 
@@ -191,16 +191,16 @@ public class CheesController implements ActionListener {
             seleccionada = null;
             vista.pintarCasillasNormal(juego.getTablero());
             int i = 0;
-            while (seleccionada == null && (i < juego.getNegro().fichas.size() || i < juego.getBlanco().fichas.size())) {
-                if (i < juego.getNegro().fichas.size() && !turnoBlanco) {
-                    if (juego.getNegro().fichas.get(i).casilla.equals(boton)) {
-                        seleccionado = juego.getNegro().fichas.get(i).casilla;
-                        seleccionada = juego.getNegro().fichas.get(i);
+            while (seleccionada == null && (i < juego.getNegro().getFichas().size() || i < juego.getBlanco().getFichas().size())) {
+                if (i < juego.getNegro().getFichas().size() && !turnoBlanco) {
+                    if (juego.getNegro().getFichas().get(i).casilla.equals(boton)) {
+                        seleccionado = juego.getNegro().getFichas().get(i).casilla;
+                        seleccionada = juego.getNegro().getFichas().get(i);
                     }
-                } else if (i < juego.getBlanco().fichas.size() && turnoBlanco) {
-                    if (juego.getBlanco().fichas.get(i).casilla.equals(boton)) {
-                        seleccionado = juego.getBlanco().fichas.get(i).casilla;
-                        seleccionada = juego.getBlanco().fichas.get(i);
+                } else if (i < juego.getBlanco().getFichas().size() && turnoBlanco) {
+                    if (juego.getBlanco().getFichas().get(i).casilla.equals(boton)) {
+                        seleccionado = juego.getBlanco().getFichas().get(i).casilla;
+                        seleccionada = juego.getBlanco().getFichas().get(i);
                     }
                 }
                 i++;
@@ -261,17 +261,17 @@ public class CheesController implements ActionListener {
         Ficha comida = null;
         if (turnoBlanco) {
             if (juego.casillaOcupada(boton, juego.getNegro())) {
-                for (int i = 0; i < juego.getNegro().fichas.size(); i++) {
-                    if (juego.getNegro().fichas.get(i).casilla.equals(boton)) {
-                        comida = juego.getNegro().fichas.get(i);
+                for (int i = 0; i < juego.getNegro().getFichas().size(); i++) {
+                    if (juego.getNegro().getFichas().get(i).casilla.equals(boton)) {
+                        comida = juego.getNegro().getFichas().get(i);
                     }
                 }
             }
         } else {
             if (juego.casillaOcupada(boton, juego.getBlanco())) {
-                for (int i = 0; i < juego.getBlanco().fichas.size(); i++) {
-                    if (juego.getBlanco().fichas.get(i).casilla.equals(boton)) {
-                        comida = juego.getBlanco().fichas.get(i);
+                for (int i = 0; i < juego.getBlanco().getFichas().size(); i++) {
+                    if (juego.getBlanco().getFichas().get(i).casilla.equals(boton)) {
+                        comida = juego.getBlanco().getFichas().get(i);
                     }
                 }
             }

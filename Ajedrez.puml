@@ -16,9 +16,11 @@ class codigo.PGNCreater {
 
 
 class codigo.Jugador {
-+ boolean blanco
-+ ArrayList<codigo.Ficha> fichas
+- boolean blanco
+- ArrayList<codigo.Ficha> fichas
 + boolean estaLaFicha(int)
++ boolean isBlanco()
++ ArrayList<Ficha> getFichas()
 }
 
 

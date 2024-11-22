@@ -28,8 +28,8 @@ public class Partida {
 
     public boolean casillaOcupada(JButton casilla, codigo.Jugador jugador) {
         boolean ocupada = false;
-        for(int i=0; i<jugador.fichas.size(); i++){
-            if(casilla.equals(jugador.fichas.get(i).casilla)){
+        for(int i=0; i<jugador.getFichas().size(); i++){
+            if(casilla.equals(jugador.getFichas().get(i).casilla)){
                 ocupada = true;
             }
         }
@@ -39,12 +39,12 @@ public class Partida {
     //retorna si se  ha acabado la partida
     public boolean comer(codigo.Jugador rival, codigo.Ficha eliminada){
         boolean acabado = false;
-        for(int i=0; i<rival.fichas.size(); i++){
-            if(rival.fichas.get(i).equals(eliminada)){
-                if(rival.fichas.get(i).tipo == 6){
+        for(int i=0; i<rival.getFichas().size(); i++){
+            if(rival.getFichas().get(i).equals(eliminada)){
+                if(rival.getFichas().get(i).tipo == 6){
                     acabado = true;
                 }
-                rival.fichas.remove(i);
+                rival.getFichas().remove(i);
             }
         }
         return acabado;
