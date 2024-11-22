@@ -96,8 +96,9 @@ public class ChessView extends javax.swing.JFrame {
     private JButton[][] MatrizCasillas;
     private javax.swing.JPanel panelDerecho;
     private JTextArea textArea;
-    PGNCreater pgnCreater;
-    JButton btnGuardar;
+    private PGNCreater pgnCreater;
+    private JButton btnGuardar;
+    private JTextField textoGuardar;
 
 
     public ChessView() {
@@ -244,6 +245,7 @@ public class ChessView extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         tfTurno = new javax.swing.JTextField();
+        textoGuardar = new javax.swing.JTextField();
         btnGuardar = new JButton("Guardar");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -407,7 +409,7 @@ public class ChessView extends javax.swing.JFrame {
         jPanel3.add(jLabel16);
 
         // Configuración del panel derecho
-        panelDerecho.setLayout(new java.awt.BorderLayout());
+        panelDerecho.setLayout(new BoxLayout(panelDerecho, BoxLayout.Y_AXIS));
 
 // Configuración del JTextArea con un JScrollPane
         textArea.setEditable(false);
@@ -416,16 +418,25 @@ public class ChessView extends javax.swing.JFrame {
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(textArea);
+
         panelDerecho.add(scrollPane, java.awt.BorderLayout.CENTER);
 
+        panelDerecho.add(textArea, java.awt.BorderLayout.SOUTH);
         // Configuración del botón Guardar
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14));
+
+        textoGuardar = new JTextField(20);
+
+        panelDerecho.add(new JLabel("Nombre del archivo:")); // Etiqueta descriptiva
+        panelDerecho.add(textoGuardar);
+
         panelDerecho.add(btnGuardar, java.awt.BorderLayout.SOUTH);
 
         tfTurno.setEditable(false);
         tfTurno.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
         tfTurno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfTurno.setText("BLANCO");
+
 
         // Ajustar el diseño principal
         GroupLayout layout = new GroupLayout(getContentPane());
@@ -824,5 +835,9 @@ public class ChessView extends javax.swing.JFrame {
     }
     public JButton getBtnGuardar() {
         return btnGuardar;
+    }
+
+    public JTextField getTextoGuardar(){
+        return textoGuardar;
     }
 }

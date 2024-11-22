@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class CheesController implements ActionListener {
 
@@ -18,6 +19,7 @@ public class CheesController implements ActionListener {
     private JButton seleccionado;
     private Ficha seleccionada;
     private Partida juego;
+    private String nombre;
 
     public CheesController(ChessView vista) {
         this.vista = vista;
@@ -28,11 +30,16 @@ public class CheesController implements ActionListener {
         pgnCreater = new PGNCreater("Jugador Blanco", "Jugador Negro", vista.getTextArea());
         sacarFichas();
         vista.getBtnGuardar().addActionListener(e -> {
-            //pgnCreater.guardarPGN("hola.pgn");
-            System.out.println("Boton guardar");
+            nombre = vista.getTextoGuardar().getText().trim();
+            try {
+                pgnCreater.guardarPGN("src/partidas/"+nombre+".pgn");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            JOptionPane.showMessageDialog(null, "¡Guardado correctamente!");
+            vista.dispose();
         });
     }
-
 
     private void sacarFichas() {
         //Fichas blancas
@@ -280,11 +287,23 @@ public class CheesController implements ActionListener {
             if (turnoBlanco) {
                 if (juego.comer(juego.getNegro(), comida)) {
                     JOptionPane.showMessageDialog(null, "¡Las fichas BLANCAS gana la partida!");
+                    try {
+                        pgnCreater.guardarPGN("src/partidas/"+nombre+".pgn");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    JOptionPane.showMessageDialog(null, "¡Guardado correctamente!");
                     vista.dispose();
                 }
             } else {
                 if (juego.comer(juego.getBlanco(), comida)) {
                     JOptionPane.showMessageDialog(null, "¡Las fichas NEGRAS gana la partida!");
+                    try {
+                        pgnCreater.guardarPGN("src/partidas/"+nombre+".pgn");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    JOptionPane.showMessageDialog(null, "¡Guardado correctamente!");
                     vista.dispose();
                 }
             }
