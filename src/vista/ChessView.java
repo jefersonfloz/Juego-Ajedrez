@@ -7,6 +7,12 @@ import controlador.CheesController;
 import java.awt.Color;
 import javax.swing.*;
 
+/**
+ * La clase ChessView representa la vista de la interfaz gráfica del tablero
+ * de ajedrez, utilizando un conjunto de botones organizados en una matriz
+ * para modelar el tablero. Incluye funcionalidades para pintar las casillas,
+ * gestionar los turnos, y permitir la interacción con el usuario.
+ */
 public class ChessView extends javax.swing.JFrame {
 
     private javax.swing.JButton A1;
@@ -100,7 +106,11 @@ public class ChessView extends javax.swing.JFrame {
     private JButton btnGuardar;
     private JTextField textoGuardar;
 
-
+    /**
+     * Constructor de la clase ChessView.
+     * Inicializa la interfaz gráfica, configura la matriz de casillas
+     * y establece el color inicial del tablero.
+     */
     public ChessView() {
         initComponents();
         pgnCreater = new PGNCreater("Jugador Blanco", "Jugador Negro", textArea);
@@ -127,7 +137,11 @@ public class ChessView extends javax.swing.JFrame {
         tfTurno.setForeground(Color.BLACK);
     }
 
-
+    /**
+     * Pinta las casillas del tablero con el patrón de ajedrez estándar.
+     *
+     * @param MatrizCasillas La matriz de botones que representan las casillas del tablero.
+     */
 
     public void pintarCasillasNormal(JButton[][] MatrizCasillas) {
         int i, j;
@@ -154,6 +168,19 @@ public class ChessView extends javax.swing.JFrame {
             }
         }
     }
+
+    /**
+     * Este método inicializa los componentes de la interfaz gráfica, incluidos los botones
+     * que representan las casillas del tablero de ajedrez. Es un método generado automáticamente
+     * por herramientas de diseño visual como NetBeans y no debería ser modificado manualmente
+     * en la mayoría de los casos.
+     *
+     * Configura los elementos básicos del panel de casillas y crea los botones
+     * para cada casilla del tablero, desde A1 hasta H8.
+     *
+     * Se utiliza la anotación {@code @SuppressWarnings("unchecked")} para suprimir
+     * advertencias generadas automáticamente por el compilador sobre tipos genéricos.
+     */
 
 
     @SuppressWarnings("unchecked")
@@ -474,6 +501,18 @@ public class ChessView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    /**
+     * Asocia un controlador a los botones del tablero de ajedrez y a otros botones relacionados,
+     * permitiendo manejar eventos de clic en cada casilla.
+     *
+     * @param controller el controlador de tipo {@code CheesController} que manejará
+     *                   los eventos de acción de los botones del tablero.
+     *
+     * Este método utiliza el patrón MVC (Modelo-Vista-Controlador), donde la vista
+     * (los botones) delega la lógica de negocio al controlador al ocurrir un evento.
+     * Cada botón del tablero (A1 a H8) y el botón {@code btnGuardar} se configura
+     * para que invoque los métodos del controlador cuando se haga clic.
+     */
     public void addController(CheesController controller) {
         A1.addActionListener(controller);
         B1.addActionListener(controller);
@@ -550,6 +589,24 @@ public class ChessView extends javax.swing.JFrame {
     }
 
 
+    /**
+     * Maneja la promoción de un peón al llegar al final del tablero,
+     * permitiendo al usuario seleccionar la nueva pieza a través de un diálogo.
+     *
+     * @param boton        el botón del tablero que representa la casilla donde
+     *                     se encuentra el peón que será promovido.
+     * @param turnoBlanco  un booleano que indica si el turno actual es de las piezas blancas
+     *                     ({@code true} para blancas, {@code false} para negras).
+     * @param seleccionada la pieza que será promovida, cuya propiedad {@code tipo}
+     *                     será modificada para reflejar la nueva pieza seleccionada.
+     *
+     * Este método muestra un diálogo modal con opciones para la promoción
+     * del peón (Torre, Caballo, Alfil, Dama). Según la selección del usuario,
+     * cambia el tipo de la pieza y actualiza el icono del botón correspondiente
+     * con la nueva figura.
+     */
+
+
     public void promocionarPeon(JButton boton, boolean turnoBlanco, Ficha seleccionada) {
         String[] opciones = {"Torre", "Caballo", "Alfil", "Dama"};
         int n = JOptionPane.showOptionDialog(rootPane,
@@ -565,278 +622,626 @@ public class ChessView extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Obtiene el campo de texto que muestra el turno actual.
+     *
+     * @return el JTextField que indica el turno.
+     */
 
     public JTextField getTfTurno() {
         return tfTurno;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A7.
+     *
+     * @return el JButton de la casilla A7.
+     */
     public JButton getA7() {
         return A7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A1.
+     *
+     * @return el JButton de la casilla A1.
+     */
     public JButton getA1() {
         return A1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A2.
+     *
+     * @return el JButton de la casilla A2.
+     */
     public JButton getA2() {
         return A2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A3.
+     *
+     * @return el JButton de la casilla A3.
+     */
     public JButton getA3() {
         return A3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A4.
+     *
+     * @return el JButton de la casilla A4.
+     */
     public JButton getA4() {
         return A4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A5.
+     *
+     * @return el JButton de la casilla A5.
+     */
     public JButton getA5() {
         return A5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A6.
+     *
+     * @return el JButton de la casilla A6.
+     */
     public JButton getA6() {
         return A6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla A8.
+     *
+     * @return el JButton de la casilla A8.
+     */
     public JButton getA8() {
         return A8;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B1.
+     *
+     * @return el JButton de la casilla B1.
+     */
     public JButton getB1() {
         return B1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B2.
+     *
+     * @return el JButton de la casilla B2.
+     */
     public JButton getB2() {
         return B2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B3.
+     *
+     * @return el JButton de la casilla B3.
+     */
     public JButton getB3() {
         return B3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B4.
+     *
+     * @return el JButton de la casilla B4.
+     */
     public JButton getB4() {
         return B4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B5.
+     *
+     * @return el JButton de la casilla B5.
+     */
     public JButton getB5() {
         return B5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B6.
+     *
+     * @return el JButton de la casilla B6.
+     */
     public JButton getB6() {
         return B6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B7.
+     *
+     * @return el JButton de la casilla B7.
+     */
     public JButton getB7() {
         return B7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla B8.
+     *
+     * @return el JButton de la casilla B8.
+     */
     public JButton getB8() {
         return B8;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C1.
+     *
+     * @return el JButton de la casilla C1.
+     */
     public JButton getC1() {
         return C1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C2.
+     *
+     * @return el JButton de la casilla C2.
+     */
     public JButton getC2() {
         return C2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C3.
+     *
+     * @return el JButton de la casilla C3.
+     */
     public JButton getC3() {
         return C3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C4.
+     *
+     * @return el JButton de la casilla C4.
+     */
     public JButton getC4() {
         return C4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C5.
+     *
+     * @return el JButton de la casilla C5.
+     */
     public JButton getC5() {
         return C5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C6.
+     *
+     * @return el JButton de la casilla C6.
+     */
     public JButton getC6() {
         return C6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C7.
+     *
+     * @return el JButton de la casilla C7.
+     */
     public JButton getC7() {
         return C7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla C8.
+     *
+     * @return el JButton de la casilla C8.
+     */
     public JButton getC8() {
         return C8;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D1.
+     *
+     * @return el JButton de la casilla D1.
+     */
     public JButton getD1() {
         return D1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D2.
+     *
+     * @return el JButton de la casilla D2.
+     */
     public JButton getD2() {
         return D2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D3.
+     *
+     * @return el JButton de la casilla D3.
+     */
     public JButton getD3() {
         return D3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D4.
+     *
+     * @return el JButton de la casilla D4.
+     */
     public JButton getD4() {
         return D4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D5.
+     *
+     * @return el JButton de la casilla D5.
+     */
     public JButton getD5() {
         return D5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D6.
+     *
+     * @return el JButton de la casilla D6.
+     */
     public JButton getD6() {
         return D6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D7.
+     *
+     * @return el JButton de la casilla D7.
+     */
     public JButton getD7() {
         return D7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla D8.
+     *
+     * @return el JButton de la casilla D8.
+     */
     public JButton getD8() {
         return D8;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E1.
+     *
+     * @return el JButton de la casilla E1.
+     */
     public JButton getE1() {
         return E1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E2.
+     *
+     * @return el JButton de la casilla E2.
+     */
     public JButton getE2() {
         return E2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E3.
+     *
+     * @return el JButton de la casilla E3.
+     */
     public JButton getE3() {
         return E3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E4.
+     *
+     * @return el JButton de la casilla E4.
+     */
     public JButton getE4() {
         return E4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E5.
+     *
+     * @return el JButton de la casilla E5.
+     */
     public JButton getE5() {
         return E5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E6.
+     *
+     * @return el JButton de la casilla E6.
+     */
     public JButton getE6() {
         return E6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E7.
+     *
+     * @return el JButton de la casilla E7.
+     */
     public JButton getE7() {
         return E7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla E8.
+     *
+     * @return el JButton de la casilla E8.
+     */
     public JButton getE8() {
         return E8;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F1.
+     *
+     * @return el JButton de la casilla F1.
+     */
     public JButton getF1() {
         return F1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F2.
+     *
+     * @return el JButton de la casilla F2.
+     */
     public JButton getF2() {
         return F2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F3.
+     *
+     * @return el JButton de la casilla F3.
+     */
     public JButton getF3() {
         return F3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F4.
+     *
+     * @return el JButton de la casilla F4.
+     */
     public JButton getF4() {
         return F4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F5.
+     *
+     * @return el JButton de la casilla F5.
+     */
     public JButton getF5() {
         return F5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F6.
+     *
+     * @return el JButton de la casilla F6.
+     */
     public JButton getF6() {
         return F6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F7.
+     *
+     * @return el JButton de la casilla F7.
+     */
     public JButton getF7() {
         return F7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla F8.
+     *
+     * @return el JButton de la casilla F8.
+     */
     public JButton getF8() {
         return F8;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G1.
+     *
+     * @return el JButton de la casilla G1.
+     */
     public JButton getG1() {
         return G1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G2.
+     *
+     * @return el JButton de la casilla G2.
+     */
     public JButton getG2() {
         return G2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G3.
+     *
+     * @return el JButton de la casilla G3.
+     */
     public JButton getG3() {
         return G3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G4.
+     *
+     * @return el JButton de la casilla G4.
+     */
     public JButton getG4() {
         return G4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G5.
+     *
+     * @return el JButton de la casilla G5.
+     */
     public JButton getG5() {
         return G5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G6.
+     *
+     * @return el JButton de la casilla G6.
+     */
     public JButton getG6() {
         return G6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G7.
+     *
+     * @return el JButton de la casilla G7.
+     */
     public JButton getG7() {
         return G7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla G8.
+     *
+     * @return el JButton de la casilla G8.
+     */
     public JButton getG8() {
         return G8;
     }
 
+
+    /**
+     * Obtiene el botón correspondiente a la casilla H1.
+     *
+     * @return el JButton de la casilla H1.
+     */
     public JButton getH1() {
         return H1;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla H2.
+     *
+     * @return el JButton de la casilla H2.
+     */
     public JButton getH2() {
         return H2;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla H3.
+     *
+     * @return el JButton de la casilla H3.
+     */
     public JButton getH3() {
         return H3;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla H4.
+     *
+     * @return el JButton de la casilla H4.
+     */
     public JButton getH4() {
         return H4;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla H5.
+     *
+     * @return el JButton de la casilla H5.
+     */
     public JButton getH5() {
         return H5;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla H6.
+     *
+     * @return el JButton de la casilla H6.
+     */
     public JButton getH6() {
         return H6;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla H7.
+     *
+     * @return el JButton de la casilla H7.
+     */
     public JButton getH7() {
         return H7;
     }
 
+    /**
+     * Obtiene el botón correspondiente a la casilla H8.
+     *
+     * @return el JButton de la casilla H8.
+     */
     public JButton getH8() {
         return H8;
     }
+
+
+    /**
+     * Obtiene la matriz de botones que representan las casillas del tablero.
+     *
+     * @return un arreglo bidimensional de JButton que representa las casillas.
+     */
 
     public JButton[][] getMatrizCasillas() {
         return MatrizCasillas;
     }
 
+    /**
+     * Obtiene el área de texto utilizada para mostrar mensajes en la interfaz.
+     *
+     * @return el JTextArea asociado a los mensajes.
+     */
     public JTextArea getTextArea() {
         return textArea;
     }
+
+    /**
+     * Obtiene el botón utilizado para guardar el estado del juego.
+     *
+     * @return el JButton asociado a la acción de guardar.
+     */
     public JButton getBtnGuardar() {
         return btnGuardar;
     }
-
+    /**
+     * Obtiene el campo de texto donde se ingresa el nombre para guardar el juego.
+     *
+     * @return el JTextField asociado al nombre de guardado.
+     */
     public JTextField getTextoGuardar(){
         return textoGuardar;
     }

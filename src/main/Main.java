@@ -1,3 +1,5 @@
+package main;
+
 import controlador.CheesController;
 import vista.ChessView;
 

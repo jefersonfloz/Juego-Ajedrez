@@ -11,6 +11,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+/**
+ * Controlador de las interacciones entre la vista y la lógica del juego de ajedrez.
+ * Esta clase maneja los movimientos de las piezas, el turno de los jugadores, y el registro de las partidas en formato PGN.
+ * Implementa la interfaz ActionListener para gestionar los eventos de los botones en la interfaz gráfica.
+ */
 
 public class CheesController implements ActionListener {
 
@@ -21,6 +26,14 @@ public class CheesController implements ActionListener {
     private Partida juego;
     private String nombre;
 
+
+    /**
+     * Constructor que inicializa el controlador de ajedrez con la vista proporcionada.
+     * También establece los jugadores, crea la partida y configura el PGNCreater.
+     * Además, asigna un ActionListener al botón de guardar de la vista.
+     *
+     * @param vista Vista del tablero de ajedrez
+     */
     public CheesController(ChessView vista) {
         this.vista = vista;
         this.vista.addController(this);
@@ -32,7 +45,7 @@ public class CheesController implements ActionListener {
         vista.getBtnGuardar().addActionListener(e -> {
             nombre = vista.getTextoGuardar().getText().trim();
             try {
-                pgnCreater.guardarPGN("src/partidas/"+nombre+".pgn");
+                pgnCreater.guardarPGN("src/partidas/" + nombre + ".pgn");
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -41,6 +54,10 @@ public class CheesController implements ActionListener {
         });
     }
 
+    /**
+     * Inicializa las piezas en el tablero de ajedrez para ambas partidas (blanco y negro).
+     * Coloca las fichas en sus posiciones iniciales correspondientes.
+     */
     private void sacarFichas() {
         //Fichas blancas
         //Peones blancos
@@ -123,7 +140,13 @@ public class CheesController implements ActionListener {
         juego.getNegro().getFichas().add(reyNegro);
     }
 
-
+    /**
+     * Controla el evento de un botón presionado en el tablero de ajedrez.
+     * Al seleccionar una ficha o casilla, el controlador maneja el movimiento de las piezas
+     * y actualiza el estado del tablero.
+     *
+     * @param e El evento de acción que fue disparado
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -134,10 +157,10 @@ public class CheesController implements ActionListener {
                 {vista.getA2(), vista.getB2(), vista.getC2(), vista.getD2(), vista.getE2(), vista.getF2(), vista.getG2(), vista.getH2()},
                 {vista.getA3(), vista.getB3(), vista.getC3(), vista.getD3(), vista.getE3(), vista.getF3(), vista.getG3(), vista.getH3()},
                 {vista.getA4(), vista.getB4(), vista.getC4(), vista.getD4(), vista.getE4(), vista.getF4(), vista.getG4(), vista.getH4()},
-                {vista.getA5(),vista.getB5(), vista.getC5(), vista.getD5(), vista.getE5(), vista.getF5(), vista.getG5(), vista.getH5()},
-                {vista.getA6(),vista.getB6(), vista.getC6(), vista.getD6(), vista.getE6(), vista.getF6(), vista.getG6(), vista.getH6()},
-                {vista.getA7(),vista.getB7(), vista.getC7(), vista.getD7(), vista.getE7(), vista.getF7(), vista.getG7(), vista.getH7()},
-                {vista.getA8(),vista.getB8(), vista.getC8(), vista.getD8(), vista.getE8(),vista.getF8(), vista.getG8(), vista.getH8()}
+                {vista.getA5(), vista.getB5(), vista.getC5(), vista.getD5(), vista.getE5(), vista.getF5(), vista.getG5(), vista.getH5()},
+                {vista.getA6(), vista.getB6(), vista.getC6(), vista.getD6(), vista.getE6(), vista.getF6(), vista.getG6(), vista.getH6()},
+                {vista.getA7(), vista.getB7(), vista.getC7(), vista.getD7(), vista.getE7(), vista.getF7(), vista.getG7(), vista.getH7()},
+                {vista.getA8(), vista.getB8(), vista.getC8(), vista.getD8(), vista.getE8(), vista.getF8(), vista.getG8(), vista.getH8()}
         };
 
         // Recorre las filas de botones
@@ -152,6 +175,15 @@ public class CheesController implements ActionListener {
             }
         }
     }
+
+    /**
+     * Maneja el evento de un botón presionado en el tablero de ajedrez. Este método determina si el movimiento es un
+     * movimiento normal o un movimiento con captura, registra el movimiento en formato PGN y actualiza el tablero de ajedrez.
+     * También controla la promoción de peones si alcanzan la fila final y actualiza el turno de juego.
+     *
+     * @param boton    El botón de la casilla en el tablero que ha sido presionado.
+     * @param posicion La posición de la casilla en el tablero, representada por un índice (de 0 a 63).
+     */
 
     public void accionBoton(JButton boton, int posicion) {
         boolean turnoBlanco = juego.isTurnoBlanco();
@@ -170,9 +202,9 @@ public class CheesController implements ActionListener {
             seleccionada.casilla = boton;
             if (seleccionada.tipo == 1 && ((posicion >= 0) && (posicion <= 7) || (posicion >= 56) && (posicion <= 63))) {
                 if (turnoBlanco && (posicion >= 0) && (posicion <= 7)) {
-                    vista.promocionarPeon(boton, turnoBlanco,seleccionada);
+                    vista.promocionarPeon(boton, turnoBlanco, seleccionada);
                 } else if (!turnoBlanco && (posicion >= 56) && (posicion <= 63)) {
-                    vista.promocionarPeon(boton, turnoBlanco,seleccionada);
+                    vista.promocionarPeon(boton, turnoBlanco, seleccionada);
                 } else {
                     System.out.println("Error");
                 }
@@ -239,6 +271,13 @@ public class CheesController implements ActionListener {
         }
     }
 
+    /**
+     * Obtiene la fila en la que se encuentra un botón dentro de una matriz de botones.
+     *
+     * @param boton   El botón que se quiere localizar.
+     * @param botones La matriz de botones en la que se busca.
+     * @return La fila del botón, o -1 si no se encuentra.
+     */
 
     private int getFila(JButton boton, JButton[][] botones) {
         for (int i = 0; i < botones.length; i++) {
@@ -250,6 +289,14 @@ public class CheesController implements ActionListener {
         }
         return -1; // No encontrado
     }
+
+    /**
+     * Obtiene la columna en la que se encuentra un botón dentro de una matriz de botones.
+     *
+     * @param boton El botón que se quiere localizar.
+     * @param botones La matriz de botones en la que se busca.
+     * @return La columna del botón, o -1 si no se encuentra.
+     */
 
     private int getColumna(JButton boton, JButton[][] botones) {
         for (int i = 0; i < botones.length; i++) {
@@ -263,6 +310,18 @@ public class CheesController implements ActionListener {
     }
 
 
+    /**
+     * Mueve una ficha en el tablero, gestionando la captura de fichas enemigas, la promoción de peones y la actualización de la partida.
+     * Si el jugador mueve a una casilla ocupada por una ficha contraria, se captura la ficha enemiga.
+     * Si el movimiento promueve a un peón, se promueve la ficha a una nueva pieza.
+     * Después de mover la ficha, actualiza el turno y el estado del tablero.
+     *
+     * @param juego El objeto que contiene el estado de la partida y permite interactuar con las reglas del juego.
+     * @param turnoBlanco Indica si es el turno del jugador blanco (true) o negro (false).
+     * @param boton El botón en el que se desea colocar la ficha.
+     * @param seleccionada La ficha que se está moviendo.
+     * @param posicion La posición en la que se desea mover la ficha (usada para comprobar si se trata de una promoción de peón).
+     */
 
     public void moverFicha(Partida juego, boolean turnoBlanco, JButton boton, Ficha seleccionada, int posicion) {
         Ficha comida = null;
@@ -327,6 +386,13 @@ public class CheesController implements ActionListener {
             actualizarTurno(turnoBlanco);
         }
     }
+
+    /**
+     * Actualiza el turno de la partida cambiando el color del fondo del panel de turno y el texto que muestra el jugador actual.
+     * Después de actualizar el turno, se cambia el jugador activo en el objeto de partida.
+     *
+     * @param turnoBlanco Indica si el turno actual es del jugador blanco (true) o negro (false).
+     */
 
     public void actualizarTurno(boolean turnoBlanco){
         if(turnoBlanco){

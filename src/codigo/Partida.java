@@ -4,11 +4,25 @@ package codigo;
 import javax.swing.JButton;
 import java.awt.*;
 
+
+/**
+ * Clase que representa una partida de ajedrez con dos jugadores, un tablero de botones
+ * y gestión de turnos, movimientos y capturas de piezas.
+ */
+
 public class Partida {
     private Jugador blanco;
     private Jugador negro;
     private JButton tablero[][];
     private boolean turnoBlanco;
+
+    /**
+     * Constructor que inicializa una partida con jugadores y un tablero.
+     *
+     * @param b Jugador que controla las piezas blancas.
+     * @param n Jugador que controla las piezas negras.
+     * @param t Tablero representado como una matriz de botones.
+     */
 
     public Partida(codigo.Jugador b, codigo.Jugador n, JButton[][] t){
         this.blanco = b;
@@ -18,6 +32,10 @@ public class Partida {
         this.tablero = t;
     }
 
+
+    /**
+     * Cambia el turno de juego alternando entre el jugador blanco y el negro.
+     */
     public void cambiarTurno(){
         if(this.turnoBlanco){
             this.turnoBlanco = false;
@@ -26,6 +44,13 @@ public class Partida {
         }
     }
 
+    /**
+     * Verifica si una casilla está ocupada por alguna ficha del jugador dado.
+     *
+     * @param casilla Casilla a verificar.
+     * @param jugador Jugador cuyas fichas se verificarán.
+     * @return true si la casilla está ocupada, false en caso contrario.
+     */
     public boolean casillaOcupada(JButton casilla, codigo.Jugador jugador) {
         boolean ocupada = false;
         for(int i=0; i<jugador.getFichas().size(); i++){
@@ -35,6 +60,16 @@ public class Partida {
         }
         return ocupada;
     }
+
+
+    /**
+     * Realiza la acción de "comer" una ficha rival, verificando si es el rey
+     * para determinar si se acaba la partida.
+     *
+     * @param rival Jugador rival cuyas fichas se revisarán.
+     * @param eliminada Ficha que se intenta eliminar.
+     * @return true si la partida ha terminado (rey eliminado), false en caso contrario.
+     */
 
     //retorna si se  ha acabado la partida
     public boolean comer(codigo.Jugador rival, codigo.Ficha eliminada){
@@ -49,7 +84,13 @@ public class Partida {
         }
         return acabado;
     }
-
+    /**
+     * Calcula las posiciones posibles de movimiento para un caballo según las reglas
+     * del ajedrez. Cambia el color de las casillas accesibles según su estado.
+     *
+     * @param posicion Índice de la posición inicial del caballo en el tablero.
+     * @param turnoBlanco true si es el turno de las piezas blancas, false en caso contrario.
+     */
 
     public void calcularPosicionesCaballo(int posicion, boolean turnoBlanco) {
         int x = posicion / 8;
@@ -237,6 +278,13 @@ public class Partida {
         }
 
     }
+    /**
+     * Calcula las posiciones posibles de movimiento para un alfil según las reglas
+     * del ajedrez. Cambia el color de las casillas accesibles según su estado.
+     *
+     * @param posicion Índice de la posición inicial del alfil en el tablero.
+     * @param turnoBlanco true si es el turno de las piezas blancas, false en caso contrario.
+     */
 
     public void calcularPosicionesAlfil(int posicion, boolean turnoBlanco) {
         int x = posicion / 8;

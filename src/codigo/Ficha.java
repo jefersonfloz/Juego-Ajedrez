@@ -2,14 +2,28 @@ package codigo;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
+/**
+ * Representa una ficha de ajedrez asociada a una casilla.
+ */
 public class Ficha {
-
+    /** Indica si la ficha es blanca o negra. */
     public boolean fichaBlanca;
+    /** Identificador único de la ficha. */
     public int id;
-    public int tipo; //1 Peon - 2 Torre - 3 Caballo - 4 Alfil - 5 Dama - 6 Rey
+    /** Tipo de ficha: 1 - Peón, 2 - Torre, 3 - Caballo, 4 - Alfil, 5 - Dama, 6 - Rey. */
+    public int tipo;
+    /** Botón asociado a la ficha, que representa la casilla en el tablero. */
     public JButton casilla;
 
+
+    /**
+     * Constructor de la clase Ficha.
+     *
+     * @param fic Indica si la ficha es blanca (true) o negra (false).
+     * @param id Identificador único de la ficha.
+     * @param tip Tipo de ficha (1 - Peón, 2 - Torre, 3 - Caballo, 4 - Alfil, 5 - Dama, 6 - Rey).
+     * @param cas Botón que representa la casilla donde se encuentra la ficha.
+     */
     public Ficha(boolean fic, int id, int tip, JButton cas) {
         this.fichaBlanca = fic;
         this.id = id;
@@ -18,11 +32,12 @@ public class Ficha {
         poneImagenes(cas.getWidth(), cas.getHeight());
     }
 
-    public void cambiarA(Ficha cambiar, JButton nueva){
-        cambiar.casilla = nueva;
-        cambiar.poneImagenes(nueva.getWidth(), nueva.getHeight());
-    }
-
+    /**
+     * Establece la imagen correspondiente a la ficha según su tipo y color.
+     *
+     * @param w Ancho de la casilla (botón).
+     * @param h Altura de la casilla (botón).
+     */
     public void poneImagenes(int w, int h) {
         try {
             if (fichaBlanca) {
@@ -93,6 +108,11 @@ public class Ficha {
         }
     }
 
+    /**
+     * Representación textual de la ficha.
+     *
+     * @return Una cadena con información sobre el color y el tipo de la ficha.
+     */
 
     public String toString(){
         return "Ficha blanca: "+fichaBlanca+" de tipo: "+tipo;
